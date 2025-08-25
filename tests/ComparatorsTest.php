@@ -8,6 +8,9 @@ final class ComparatorsTest extends TestCase
 {
     // ========== Case-Insensitive Comparators ==========
 
+    /**
+     * Tests case-insensitive ascending string comparator.
+     */
     public function testCiAsc(): void
     {
         $comparator = Comparators::ciAsc();
@@ -48,6 +51,10 @@ final class ComparatorsTest extends TestCase
 
     // ========== Natural Order Comparators ==========
 
+    /**
+     * Tests natural ordering comparator for version-like strings.
+     * Ensures 'file2.txt' comes before 'file10.txt' (not lexicographic).
+     */
     public function testNatural(): void
     {
         $comparator = Comparators::natural();
@@ -85,6 +92,9 @@ final class ComparatorsTest extends TestCase
 
     // ========== Reverse Comparator ==========
 
+    /**
+     * Tests the reverse() utility that flips any comparator's ordering.
+     */
     public function testReverse(): void
     {
         $naturalComparator = Comparators::natural();
@@ -143,6 +153,10 @@ final class ComparatorsTest extends TestCase
         $this->assertSame(['file20.txt', 'file10.txt', 'file2.txt', 'file1.txt'], $reverseNaturalSorted);
     }
 
+    /**
+     * Tests that all comparators follow consistency rules.
+     * If compare(a,b) > 0, then compare(b,a) < 0 (and vice versa).
+     */
     public function testComparatorsConsistency(): void
     {
         // Test that comparators are consistent (if a < b, then b > a)

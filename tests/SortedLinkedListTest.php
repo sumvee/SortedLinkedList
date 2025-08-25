@@ -9,6 +9,10 @@ final class SortedLinkedListTest extends TestCase
 {
 	// ========== Basic Functionality Tests ==========
 	
+	/**
+	 * Tests basic integer sorting functionality with natural ascending order.
+	 * Verifies core operations: add, contains, first, last.
+	 */
 	public function testIntAscending(): void
 	{
 		$l = new SortedLinkedList();
@@ -20,6 +24,9 @@ final class SortedLinkedListTest extends TestCase
 		$this->assertSame(5, $l->last());
 	}
 
+	/**
+	 * Tests behavior of empty list operations and initial state.
+	 */
 	public function testEmptyList(): void
 	{
 		$l = new SortedLinkedList();
@@ -146,6 +153,9 @@ final class SortedLinkedListTest extends TestCase
 
 	// ========== Type Safety Tests ==========
 
+	/**
+	 * Tests type locking mechanism - once int is added, strings should be rejected.
+	 */
 	public function testTypeLocking(): void
 	{
 		$l = new SortedLinkedList();
@@ -293,6 +303,9 @@ final class SortedLinkedListTest extends TestCase
 
 	// ========== Fluent Interface Tests ==========
 
+	/**
+	 * Tests fluent interface for method chaining with with() method.
+	 */
 	public function testFluentWith(): void
 	{
 		$l = (new SortedLinkedList())
@@ -418,6 +431,9 @@ final class SortedLinkedListTest extends TestCase
 
 	// ========== Edge Cases and Stress Tests ==========
 
+	/**
+	 * Tests handling of large dataset (1000 elements) to verify scalability.
+	 */
 	public function testLargeDataset(): void
 	{
 		$l = new SortedLinkedList();
